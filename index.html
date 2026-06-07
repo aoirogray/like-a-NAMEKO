@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>かずき栽培 - Premium Cultivation Game</title>
+  <meta name="description" content="かずきを原木で栽培して収穫する、楽しくて爽快な放置系ウェブアプリケーションゲームです。">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background effects -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+
+  <!-- Main App Container -->
+  <main class="app-container" id="app">
+    <!-- Header: Score & Food Info -->
+    <header class="game-header">
+      <div class="np-display">
+        <span class="np-label">NP</span>
+        <span id="np-count" class="np-value">0</span>
+      </div>
+      <div class="food-display" id="food-display-btn">
+        <span class="food-icon">🍱</span>
+        <span id="food-timer" class="food-timer">フード切れ</span>
+      </div>
+    </header>
+
+    <!-- Main Screens Viewport -->
+    <section class="screen-viewport">
+      <!-- 1. CULTIVATE SCREEN -->
+      <div id="screen-cultivate" class="game-screen active">
+        <!-- Grow Area -->
+        <div class="cultivate-area" id="cultivate-area">
+          <div class="room-background"></div>
+          
+          <!-- Steam/Humidifier Effect Overlay -->
+          <div class="steam-overlay" id="steam-overlay"></div>
+          
+          <!-- Cultivation Log (Log Area) -->
+          <div class="log-container" id="log-container">
+            <img src="assets/cultivation_log.png" alt="栽培用の原木" class="log-image" id="log-image" draggable="false">
+            <!-- Spawned Kazukis will be appended here dynamically -->
+            <div class="kazuki-spawner" id="kazuki-spawner"></div>
+          </div>
+        </div>
+
+        <!-- Food Selector Drawer (Collapsible) -->
+        <div class="food-drawer" id="food-drawer">
+          <div class="drawer-header">
+            <h3>フードを補充する</h3>
+            <button id="close-drawer-btn" class="close-btn">&times;</button>
+          </div>
+          <div class="food-options">
+            <button class="food-card" data-duration="180" data-cost="0">
+              <span class="food-card-icon">🧪</span>
+              <span class="food-card-name">お試しの栄養 (3分)</span>
+              <span class="food-card-cost">無料</span>
+            </button>
+            <button class="food-card" data-duration="900" data-cost="10">
+              <span class="food-card-icon">🍞</span>
+              <span class="food-card-name">いつものパン (15分)</span>
+              <span class="food-card-cost">10 NP</span>
+            </button>
+            <button class="food-card" data-duration="3600" data-cost="50">
+              <span class="food-card-icon">🍖</span>
+              <span class="food-card-name">高級すき焼き (60分)</span>
+              <span class="food-card-cost">50 NP</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. ENCYCLOPEDIA SCREEN -->
+      <div id="screen-encyclopedia" class="game-screen">
+        <h2 class="screen-title">かずき図鑑</h2>
+        <div class="encyclopedia-grid" id="encyclopedia-grid">
+          <!-- Filled dynamically by JavaScript -->
+        </div>
+
+        <!-- Detail Modal inside Encyclopedia -->
+        <div class="detail-modal" id="detail-modal">
+          <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-body">
+              <div class="modal-img-container">
+                <img id="modal-img" src="" alt="かずき詳細" draggable="false">
+              </div>
+              <div class="modal-info">
+                <span id="modal-rarity" class="modal-rarity"></span>
+                <h3 id="modal-name"></h3>
+                <p class="modal-stats">収穫数: <span id="modal-count">0</span>回</p>
+                <div class="modal-desc-box">
+                  <p id="modal-desc"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. SHOP SCREEN -->
+      <div id="screen-shop" class="game-screen">
+        <h2 class="screen-title">ショップ (設備強化)</h2>
+        <div class="shop-list">
+          
+          <!-- Humidifier Upgrade -->
+          <div class="shop-item" id="shop-humidifier">
+            <div class="item-icon-wrapper">
+              <span class="item-icon">🌫️</span>
+            </div>
+            <div class="item-details">
+              <div class="item-header">
+                <h3>超音波加湿器</h3>
+                <span class="item-level" id="humidifier-lvl">Lv.1</span>
+              </div>
+              <p class="item-desc">原木の水分量を保ち、かずきが育つ速度をアップします。</p>
+              <button class="buy-btn" id="btn-upgrade-humidifier" data-type="humidifier">
+                <span class="btn-text">グレードアップ</span>
+                <span class="btn-cost" id="humidifier-cost">100 NP</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Heater Upgrade -->
+          <div class="shop-item" id="shop-heater">
+            <div class="item-icon-wrapper">
+              <span class="item-icon">🔥</span>
+            </div>
+            <div class="item-details">
+              <div class="item-header">
+                <h3>遠赤外線ヒーター</h3>
+                <span class="item-level" id="heater-lvl">Lv.1</span>
+              </div>
+              <p class="item-desc">適度な温度を保ち、珍しいレアかずきが発生しやすくなります。</p>
+              <button class="buy-btn" id="btn-upgrade-heater" data-type="heater">
+                <span class="btn-text">グレードアップ</span>
+                <span class="btn-cost" id="heater-cost">150 NP</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Light Upgrade -->
+          <div class="shop-item" id="shop-light">
+            <div class="item-icon-wrapper">
+              <span class="item-icon">💡</span>
+            </div>
+            <div class="item-details">
+              <div class="item-header">
+                <h3>植物育成LEDライト</h3>
+                <span class="item-level" id="light-lvl">Lv.1</span>
+              </div>
+              <p class="item-desc">原木を照らし、一度に発生できる上限数と、枯れにくさをアップします。</p>
+              <button class="buy-btn" id="btn-upgrade-light" data-type="light">
+                <span class="btn-text">グレードアップ</span>
+                <span class="btn-cost" id="light-cost">200 NP</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="app-nav">
+      <button class="nav-btn active" data-target="screen-cultivate" id="nav-btn-cultivate">
+        <span class="nav-icon">🌳</span>
+        <span class="nav-label">栽培</span>
+      </button>
+      <button class="nav-btn" data-target="screen-encyclopedia" id="nav-btn-encyclopedia">
+        <span class="nav-icon">📖</span>
+        <span class="nav-label">図鑑</span>
+      </button>
+      <button class="nav-btn" data-target="screen-shop" id="nav-btn-shop">
+        <span class="nav-icon">🏪</span>
+        <span class="nav-label">ショップ</span>
+      </button>
+    </nav>
+  </main>
+
+  <!-- Sound effect credits / Settings overlay if needed -->
+  <div class="sound-indicator" id="sound-toggle-btn">
+    <span id="sound-status-icon">🔊 Sound On</span>
+  </div>
+
+  <!-- Core Javascript -->
+  <script src="app.js"></script>
+</body>
+</html>
