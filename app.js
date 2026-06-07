@@ -111,46 +111,64 @@ const SoundSynth = {
 
 // Game Database
 const KazukiDatabase = {
-  1: {
-    id: 1,
-    name: "通常かずき",
-    rarity: 1,
-    baseNP: 10,
-    img: "assets/normal_kazuki.png",
-    desc: "最も標準的なかずき。プログラミングとコーヒーをこよなく愛する。日々のコーディング作業で目が少し冴えている。"
-  },
-  2: {
-    id: 2,
-    name: "きのこかずき",
-    rarity: 2,
-    baseNP: 30,
-    img: "assets/mushroom_kazuki.png",
-    desc: "なめこの帽子をかぶった可愛いかずき。すっかりきのこになりきっており、原木との親和性が抜群。少しぬめぬめしている気がする。"
-  },
-  3: {
-    id: 3,
-    name: "インテリかずき",
-    rarity: 3,
-    baseNP: 80,
-    img: "assets/smart_kazuki.png",
-    desc: "メガネをかけ、ビジネススーツを着こなした知的なかずき。どんな難解なアルゴリズムも一瞬で解き明かすが、たまにキーボードを叩くのが速すぎる。"
-  },
-  4: {
-    id: 4,
-    name: "ゴールデンかずき",
-    rarity: 5,
-    baseNP: 500,
-    img: "assets/golden_kazuki.png",
-    desc: "全身がメタリックな金色に輝く、伝説の超ウルトラレアかずき。収穫すると莫大なNPをもたらし、栽培場全体が金色の幸運に包まれる。"
-  },
-  5: {
-    id: 5,
-    name: "枯れかずき",
-    rarity: 1,
-    baseNP: 1,
-    img: "assets/withered_kazuki.png",
-    desc: "フードが切れた状態で放置され、乾燥してしまったかずき。元気がなく、グルグルお目々になっている。すぐに水分（フード）をあげて復活させよう。"
-  }
+  1: { id: 1, name: "通常かずき", rarity: 1, baseNP: 10, img: "assets/normal_kazuki.png", cssFilter: "", desc: "最も標準的なかずき。プログラミングとコーヒーをこよなく愛する。日々のコーディング作業で目が少し冴えている。" },
+  2: { id: 2, name: "きのこかずき", rarity: 2, baseNP: 30, img: "assets/mushroom_kazuki.png", cssFilter: "", desc: "なめこの帽子をかぶった可愛いかずき。すっかりきのこになりきっており、原木との親和性が抜群。少しぬめぬめしている気がする。" },
+  3: { id: 3, name: "インテリかずき", rarity: 3, baseNP: 80, img: "assets/smart_kazuki.png", cssFilter: "", desc: "メガネをかけ、ビジネススーツを着こなした知的なかずき。どんな難解なアルゴリズムも一瞬で解き明かすが、たまにキーボードを叩くのが速すぎる。" },
+  4: { id: 4, name: "ゴールデンかずき", rarity: 5, baseNP: 500, img: "assets/golden_kazuki.png", cssFilter: "", desc: "全身がメタリックな金色に輝く、伝説の超ウルトラレアかずき。収穫すると莫大なNPをもたらし、栽培場全体が金色の幸運に包まれる。" },
+  5: { id: 5, name: "枯れかずき", rarity: 1, baseNP: 1, img: "assets/withered_kazuki.png", cssFilter: "", desc: "フードが切れた状態で放置され、乾燥してしまったかずき。元気がなく、グルグルお目々になっている。すぐに水分（フード）をあげて復活させよう。" },
+  6: { id: 6, name: "忍者かずき", rarity: 2, baseNP: 40, img: "assets/ninja_kazuki.png", cssFilter: "", desc: "頭巾をかぶった忍びのキノコ。物音ひとつ立てずに移動するが、キーボードの打鍵音だけは隠せないらしい。" },
+  7: { id: 7, name: "宇宙飛行士かずき", rarity: 3, baseNP: 90, img: "assets/astro_kazuki.png", cssFilter: "", desc: "ヘルメットをかぶったSFキノコ。無重力空間でのコードデバッグに挑戦中。カサがヘルメットに引っかかって苦しそう。" },
+  8: { id: 8, name: "猫耳かずき", rarity: 2, baseNP: 35, img: "assets/cat_kazuki.png", cssFilter: "", desc: "猫 of 耳としっぽが生えた可愛いキノコ。語尾に「〜にゃ」をつけたいが、恥ずかしさが勝って言えないでいる。" },
+  9: { id: 9, name: "マチョかずき", rarity: 3, baseNP: 100, img: "assets/macho_kazuki.png", cssFilter: "", desc: "筋骨隆々としたビルドアップキノコ。自慢の二頭筋を誇示している。プログラミングはパワーだと信じている。" },
+  10: { id: 10, name: "天使かずき", rarity: 4, baseNP: 200, img: "assets/angel_kazuki.png", cssFilter: "", desc: "背中に白い羽を授かった神秘的なキノコ。頭のハロー（光輪）が優しく発光し、見ているだけで癒やしをくれる。" },
+
+  // Green / Melon series (hue-rotate(90deg))
+  11: { id: 11, name: "メロンかずき", rarity: 2, baseNP: 40, img: "assets/normal_kazuki.png", cssFilter: "hue-rotate(90deg)", desc: "メロンのように爽やかな緑色になったかずき。網目模様が体に浮き出ている気がするが、ただの気のせい。" },
+  12: { id: 12, name: "緑きのこかずき", rarity: 2, baseNP: 45, img: "assets/mushroom_kazuki.png", cssFilter: "hue-rotate(90deg)", desc: "全身がフォレストグリーンに変色したきのこかずき。苔との親和性がさらに高まり、原木に完璧に擬態している。" },
+  13: { id: 13, name: "エリートかずき", rarity: 3, baseNP: 110, img: "assets/smart_kazuki.png", cssFilter: "hue-rotate(80deg)", desc: "スーツと肌が緑色のサイバーカラーになったスマートかずき。地球外の高度な暗号資産システムをハック可能。" },
+  14: { id: 14, name: "プラチナかずき", rarity: 5, baseNP: 600, img: "assets/golden_kazuki.png", cssFilter: "hue-rotate(180deg) saturate(0.2) brightness(1.5)", desc: "金を超えた輝きを持つプラチナ製のかずき。神々しい白銀の輝きを放ち、収穫時のサウンドも耳にとても心地よい。" },
+  15: { id: 15, name: "カビかずき", rarity: 1, baseNP: 2, img: "assets/withered_kazuki.png", cssFilter: "hue-rotate(120deg)", desc: "放置されてカビのような緑色の斑点が生えてしまった枯れかずき。お風呂に入れてあげればすぐ元に戻るが、NPは相変わらず低い。" },
+  16: { id: 16, name: "木ノ葉忍者かずき", rarity: 2, baseNP: 55, img: "assets/ninja_kazuki.png", cssFilter: "hue-rotate(90deg)", desc: "森に溶け込む草緑色の忍び装束を身にまとった忍者。木葉隠れの術を得意とし、完全に気配を消している。" },
+  17: { id: 17, name: "未知の宇宙かずき", rarity: 3, baseNP: 120, img: "assets/astro_kazuki.png", cssFilter: "hue-rotate(120deg)", desc: "緑色の宇宙服をまとった、未知の生命体のような宇宙飛行士。ヘルメット越しに見せるフレンドリーな笑顔が不気味。" },
+  18: { id: 18, name: "シャム猫かずき", rarity: 2, baseNP: 50, img: "assets/cat_kazuki.png", cssFilter: "hue-rotate(40deg) brightness(0.8)", desc: "ちょっぴり大人の焦げ茶色（シャム風）の毛並みを持つ猫耳キノコ。気高きプライドを持つが、なでられると弱い。" },
+  19: { id: 19, name: "ハルクかずき", rarity: 4, baseNP: 220, img: "assets/macho_kazuki.png", cssFilter: "hue-rotate(100deg)", desc: "怒りのパワーで全身が黄緑色に染まったマッチョキノコ。破壊衝動に満ちており、デバッグ時にバグごとコードを粉砕する。" },
+  20: { id: 20, name: "新緑 of 精霊かずき", rarity: 4, baseNP: 250, img: "assets/angel_kazuki.png", cssFilter: "hue-rotate(90deg)", desc: "新緑の季節を司る緑の羽の天使キノコ。彼が原木にたたずむだけで、他のキノコの成長速度がアップするような気がする。" },
+
+  // Blue / Cyber series (hue-rotate(180deg))
+  21: { id: 21, name: "ソーダかずき", rarity: 2, baseNP: 50, img: "assets/normal_kazuki.png", cssFilter: "hue-rotate(180deg)", desc: "ソーダ水のように透き通る青色のかずき。見ているだけで涼しい気分になれる。微炭酸。" },
+  22: { id: 22, name: "氷きのこかずき", rarity: 2, baseNP: 60, img: "assets/mushroom_kazuki.png", cssFilter: "hue-rotate(180deg)", desc: "カサに氷結晶が乗った、氷のきのこかずき。触ると冷たく、原木がちょっと凍りついている。" },
+  23: { id: 23, name: "サイバーかずき", rarity: 3, baseNP: 130, img: "assets/smart_kazuki.png", cssFilter: "hue-rotate(180deg)", desc: "青色のネオンホログラムを放つインテリキノコ。メタバース空間での開発をメインとしており、存在自体がバーチャル。" },
+  24: { id: 24, name: "ダイヤかずき", rarity: 5, baseNP: 700, img: "assets/golden_kazuki.png", cssFilter: "hue-rotate(190deg) brightness(1.3) saturate(0.5)", desc: "ダイヤモンドの硬度と輝きを持つ、最高品質のキノコ。眩しすぎる水色のきらめきが部屋を照らし出す。" },
+  25: { id: 25, name: "深海かずき", rarity: 2, baseNP: 5, img: "assets/withered_kazuki.png", cssFilter: "hue-rotate(200deg) brightness(0.7)", desc: "深海1000mの圧力に耐えてカサが紺色にしぼんでしまった枯れキノコ。暗闇でうっすらと発光してプランクトンを呼び寄せる。" },
+  26: { id: 26, name: "海忍かずき", rarity: 2, baseNP: 70, img: "assets/ninja_kazuki.png", cssFilter: "hue-rotate(200deg)", desc: "紺青の装束の忍者キノコ。水上を走る「水蜘蛛の術」をマスターし、お風呂場でも活動可能。" },
+  27: { id: 27, name: "ネオ宇宙飛行士", rarity: 3, baseNP: 150, img: "assets/astro_kazuki.png", cssFilter: "hue-rotate(200deg)", desc: "近未来のネオ宇宙服（サイアンブルー）を身にまとった宇宙飛行士。酸素の代わりにプログラミング言語を吸って生きている。" },
+  28: { id: 28, name: "ロシアンブルー猫", rarity: 2, baseNP: 60, img: "assets/cat_kazuki.png", cssFilter: "hue-rotate(220deg)", desc: "高貴なアッシュブルーの体毛を持つ猫耳キノコ。ツンデレ気質であり、時折見せるデレが最高に可愛い。" },
+  29: { id: 29, name: "ポセイドンかずき", rarity: 4, baseNP: 280, img: "assets/macho_kazuki.png", cssFilter: "hue-rotate(200deg)", desc: "海の神の力を宿し、青く巨大化したマッチョキノコ。そのパンチは原木の水分を一瞬で蒸発させるほど強力。" },
+  30: { id: 30, name: "堕天使かずき", rarity: 4, baseNP: 300, img: "assets/angel_kazuki.png", cssFilter: "hue-rotate(240deg) brightness(0.6)", desc: "天界の掟を破り、闇の力を得た黒紫の羽を持つ天使キノコ。少し寂しそうな表情で原木の裏に隠れている。" },
+
+  // Purple / Pink series (hue-rotate(270deg))
+  31: { id: 31, name: "グレープかずき", rarity: 2, baseNP: 60, img: "assets/normal_kazuki.png", cssFilter: "hue-rotate(270deg)", desc: "ブドウの甘い香りが漂う紫のかずき。果汁100%のジューシーなエキスがカサから滴り落ちている。" },
+  32: { id: 32, name: "毒きのこかずき", rarity: 2, baseNP: 80, img: "assets/mushroom_kazuki.png", cssFilter: "hue-rotate(270deg)", desc: "どぎつい紫色になった、怪しい毒きのこ。食べると笑いが止まらなくなる効果があるが、収穫する分には安全。" },
+  33: { id: 33, name: "マッド開発者", rarity: 3, baseNP: 160, img: "assets/smart_kazuki.png", cssFilter: "hue-rotate(280deg)", desc: "ピンクのネクタイを締め、狂気に満ちたコードを吐き出すマッドサイエンティストなキノコ。怪しい薬剤をキーボードにこぼした。" },
+  34: { id: 34, name: "アメジストかずき", rarity: 5, baseNP: 800, img: "assets/golden_kazuki.png", cssFilter: "hue-rotate(280deg) brightness(1.2)", desc: "紫水晶（アメジスト）で結晶化した豪華なキノコ。魔力を宿しており、部屋全体のレア出現率を隠しパラメータで微増させる。" },
+  35: { id: 35, name: "ゾンビ枯れかずき", rarity: 2, baseNP: 8, img: "assets/withered_kazuki.png", cssFilter: "hue-rotate(300deg)", desc: "腐敗が進んで妖しい紫色に変色した枯れかずき。ゾンビウイルスに感染しているが、ゆっくり動くだけなので無害。" },
+  36: { id: 36, name: "くのいちかずき", rarity: 2, baseNP: 85, img: "assets/ninja_kazuki.png", cssFilter: "hue-rotate(300deg)", desc: "桃色の装束をまとった艶やかなくのいちキノコ。華麗なアクロバットと甘い香りで敵を惑わせ、素早く収穫される。" },
+  37: { id: 37, name: "ワープ宇宙飛行士", rarity: 3, baseNP: 180, img: "assets/astro_kazuki.png", cssFilter: "hue-rotate(300deg)", desc: "ワープ航法中の時空の歪みで赤紫色にブレて表示される宇宙飛行士。彼のカレンダーは常に2年先を指している。" },
+  38: { id: 38, name: "チェシャ猫かずき", rarity: 3, baseNP: 95, img: "assets/cat_kazuki.png", cssFilter: "hue-rotate(300deg)", desc: "ピンクと紫の縞模様を持つ、いたずら好きな猫耳キノコ。収穫される直前にニヤニヤとした笑い顔だけを残して消えようとする。" },
+  39: { id: 39, name: "デビルマッチョ", rarity: 4, baseNP: 350, img: "assets/macho_kazuki.png", cssFilter: "hue-rotate(320deg)", desc: "悪魔の筋トレメソッドで限界を突破し、赤紫色の筋肉を手に入れたマッチョキノコ。スクワットで原木を揺らす。" },
+  40: { id: 40, name: "キューピッドかずき", rarity: 4, baseNP: 380, img: "assets/angel_kazuki.png", cssFilter: "hue-rotate(320deg) saturate(1.5)", desc: "ハートの矢を持つ恋の天使キノコ。彼の矢に射抜かれた開発者は、バグだらけのコードすら愛おしく感じてしまう。" },
+
+  // Special series (mix of filters)
+  41: { id: 41, name: "シャドウかずき", rarity: 3, baseNP: 100, img: "assets/normal_kazuki.png", cssFilter: "brightness(0) invert(0.1)", desc: "光を吸収し、完全な黒い影（シルエット）となった不気味なかずき。誰の目にも見えないが、収穫時に確かに「存在」を感じる。" },
+  42: { id: 42, name: "ネオンかずき", rarity: 3, baseNP: 140, img: "assets/mushroom_kazuki.png", cssFilter: "invert(1) hue-rotate(180deg) saturate(2)", desc: "色の反転効果（インバート）により、ネオンサイバーカラーに発光するサイケデリックなキノコ。クラブ音楽が好き。" },
+  43: { id: 43, name: "ゴーストかずき", rarity: 4, baseNP: 300, img: "assets/smart_kazuki.png", cssFilter: "opacity(0.45) brightness(1.5) saturate(0.1)", desc: "半透明になり、この世をさまようインテリキノコの霊。成仏できない理由は、未解決のバグ（無限ループ）を残したため。" },
+  44: { id: 44, name: "ルビーかずき", rarity: 5, baseNP: 1000, img: "assets/golden_kazuki.png", cssFilter: "hue-rotate(340deg) brightness(1.1) saturate(1.8)", desc: "真っ赤なルビー結晶に包まれた超絶レアキノコ。情熱の炎のような赤いきらめきを放ち、収穫した者に最高の幸運をもたらす。" },
+  45: { id: 45, name: "ミイラかずき", rarity: 2, baseNP: 20, img: "assets/withered_kazuki.png", cssFilter: "sepia(0.8) contrast(1.2)", desc: "包帯を巻いたようなセピア色の乾燥したミイラキノコ。数千年前の古代エジプト原木から発掘された歴史的価値がある。" },
+  46: { id: 46, name: "桜忍者かずき", rarity: 3, baseNP: 150, img: "assets/ninja_kazuki.png", cssFilter: "hue-rotate(330deg) saturate(1.3)", desc: "桜の花びらの舞うピンクの装束をまとった忍者。春の季節にのみ現れ、収穫されるとほのかな桜の香りを残す。" },
+  47: { id: 47, name: "ブラックホール宇宙", rarity: 4, baseNP: 400, img: "assets/astro_kazuki.png", cssFilter: "contrast(3) brightness(0.2) invert(1) hue-rotate(180deg)", desc: "中心に超重力ブラックホールを宿したアストロキノコ。周囲のNPを光ごと吸い込むため、彼の周りだけ時空が歪んでいる。" },
+  48: { id: 48, name: "黒猫かずき", rarity: 3, baseNP: 180, img: "assets/cat_kazuki.png", cssFilter: "brightness(0.25) contrast(1.2)", desc: "艶やかな黒い毛並みを持つ、神秘的な黒猫耳キノコ。横切るだけで不幸を払うと言われており、魔女の使いとしても有名。" },
+  49: { id: 49, name: "ナイトマッチョ", rarity: 4, baseNP: 450, img: "assets/macho_kazuki.png", cssFilter: "brightness(0.3) saturate(0.5) hue-rotate(240deg)", desc: "漆黒の鎧をまとったような、闇の騎士マッチョキノコ。プログラミングの「深夜残業」によって鍛え上げられた不屈の筋肉を持つ。" },
+  50: { id: 50, name: "大天使ウリエル", rarity: 5, baseNP: 2000, img: "assets/angel_kazuki.png", cssFilter: "brightness(1.4) saturate(2.0) sepia(0.3) drop-shadow(0 0 8px #ffe066)", desc: "神の炎を司る、最高峰の大天使キノコ。黄金の後光がまばゆく輝き、収穫するとゲーム画面が一瞬きらめきで満たされる最高レア。" }
 };
 
 // Game State Definition
@@ -164,7 +182,10 @@ class KazukiGame {
       light: 1       // Max 5
     };
     this.discovered = [1]; // Start with ID 1 discovered
-    this.counts = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+    this.counts = {};
+    for (let i = 1; i <= 50; i++) {
+      this.counts[i] = 0;
+    }
     this.growing = []; // Array of growing Kazuki instances
     this.activeTab = "screen-cultivate";
     
@@ -201,7 +222,10 @@ class KazukiGame {
         this.np = data.np || 0;
         this.upgrades = data.upgrades || { humidifier: 1, heater: 1, light: 1 };
         this.discovered = data.discovered || [1];
-        this.counts = data.counts || { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        const savedCounts = data.counts || {};
+        for (let i = 1; i <= 50; i++) {
+          this.counts[i] = savedCounts[i] || 0;
+        }
         
         // Handle offline growth if food was active
         const elapsedSeconds = Math.floor((Date.now() - data.saveTime) / 1000);
@@ -282,22 +306,60 @@ class KazukiGame {
     };
   }
 
-  // Select Kazuki type based on Heater level
-  rollKazukiType() {
-    const rand = Math.random();
-    const lvl = this.upgrades.heater;
+  // Get available Kazuki types based on upgrade sum
+  getAvailableTypes() {
+    const sum = this.upgrades.humidifier + this.upgrades.heater + this.upgrades.light;
+    let maxId = 2;
+    if (sum >= 13) maxId = 50;
+    else if (sum >= 12) maxId = 45;
+    else if (sum >= 11) maxId = 40;
+    else if (sum >= 10) maxId = 35;
+    else if (sum >= 9) maxId = 30;
+    else if (sum >= 8) maxId = 25;
+    else if (sum >= 7) maxId = 20;
+    else if (sum >= 6) maxId = 15;
+    else if (sum >= 5) maxId = 10;
+    else if (sum >= 4) maxId = 6;
     
-    // Probabilities adapt dynamically based on heater level
-    // Level 1: Normal 85%, Mushroom 11%, Smart 3.5%, Golden 0.5%
-    // Level 5: Normal 40%, Mushroom 35%, Smart 20%, Golden 5%
-    const goldenChance = 0.005 + (lvl - 1) * 0.01125; // 0.5% to 5%
-    const smartChance = 0.035 + (lvl - 1) * 0.04125;  // 3.5% to 20%
-    const mushroomChance = 0.11 + (lvl - 1) * 0.06;   // 11% to 35%
+    const ids = [];
+    for (let i = 1; i <= maxId; i++) {
+      if (i !== 5) ids.push(i); // Exclude withered Kazuki from sprouting
+    }
+    return ids;
+  }
 
-    if (rand < goldenChance) return 4; // Golden
-    if (rand < goldenChance + smartChance) return 3; // Smart
-    if (rand < goldenChance + smartChance + mushroomChance) return 2; // Mushroom
-    return 1; // Normal
+  // Select Kazuki type based on Heater level and Rarity weights
+  rollKazukiType() {
+    const availableIds = this.getAvailableTypes();
+    const heaterLvl = this.upgrades.heater;
+    
+    // Calculate weights for each available type
+    const weights = availableIds.map(id => {
+      const db = KazukiDatabase[id];
+      // Base rarity weight: Rarity 1: 100, Rarity 2: 25, Rarity 3: 6, Rarity 4: 1.5, Rarity 5: 0.3
+      let weight = 100 / Math.pow(4, db.rarity - 1);
+      
+      // Apply heater level bonus
+      if (db.rarity >= 3) {
+        weight *= (1 + (heaterLvl - 1) * 0.5);
+      }
+      if (db.rarity === 5) {
+        weight *= (1 + (heaterLvl - 1) * 0.8);
+      }
+      return { id, weight };
+    });
+    
+    // Weighted random selection
+    const totalWeight = weights.reduce((sum, w) => sum + w.weight, 0);
+    let random = Math.random() * totalWeight;
+    
+    for (const w of weights) {
+      random -= w.weight;
+      if (random <= 0) {
+        return w.id;
+      }
+    }
+    return availableIds[0];
   }
 
   // Try to sprout a new Kazuki
@@ -349,7 +411,10 @@ class KazukiGame {
         const el = document.getElementById(`kazuki-${k.id}`);
         if (el) {
           el.className = 'growing-kazuki mature withered';
-          el.querySelector('img').src = KazukiDatabase[5].img;
+          el.classList.remove('golden'); // Remove gold glow if it was rare
+          const imgEl = el.querySelector('img');
+          imgEl.src = KazukiDatabase[5].img;
+          imgEl.style.filter = ''; // Reset CSS color filter
         }
       }
     });
@@ -365,7 +430,7 @@ class KazukiGame {
     el.className = `growing-kazuki ${k.state}`;
     
     // Rarity-based glow class
-    if (k.type === 4) el.classList.add('golden');
+    if (KazukiDatabase[k.type].rarity === 5) el.classList.add('golden');
     if (k.state === 'withered') el.classList.add('withered');
 
     el.style.left = `${k.x}%`;
@@ -377,6 +442,11 @@ class KazukiGame {
     img.src = dbEntry.img;
     img.alt = dbEntry.name;
     img.draggable = false;
+    
+    // Apply CSS color swap filter if it exists (and is not withered)
+    if (k.state !== 'withered' && dbEntry.cssFilter) {
+      img.style.filter = dbEntry.cssFilter;
+    }
     
     el.appendChild(img);
     spawner.appendChild(el);
@@ -654,6 +724,9 @@ class KazukiGame {
       img.alt = isDiscovered ? db.name : "???";
       img.className = 'ency-card-img';
       img.draggable = false;
+      if (isDiscovered && db.cssFilter) {
+        img.style.filter = db.cssFilter;
+      }
       card.appendChild(img);
 
       const name = document.createElement('div');
@@ -678,7 +751,10 @@ class KazukiGame {
     const db = KazukiDatabase[id];
     const modal = document.getElementById('detail-modal');
     
-    document.getElementById('modal-img').src = db.img;
+    const modalImg = document.getElementById('modal-img');
+    modalImg.src = db.img;
+    modalImg.style.filter = db.cssFilter || '';
+    
     document.getElementById('modal-name').innerText = db.name;
     document.getElementById('modal-rarity').innerText = "★".repeat(db.rarity) + "☆".repeat(5 - db.rarity);
     document.getElementById('modal-count').innerText = this.counts[id] || 0;
