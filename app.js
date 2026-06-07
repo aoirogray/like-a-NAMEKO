@@ -766,7 +766,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (soundBtn && soundIcon) {
     soundBtn.addEventListener('click', () => {
       const active = SoundSynth.toggle();
-      soundIcon.innerText = active ? "🔊 Sound On" : "🔇 Sound Off";
+      soundIcon.innerText = active ? "🔊 On" : "🔇 Off";
     });
   }
 

@@ -137,6 +137,10 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(255, 126, 95, 0.25);
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  outline: none;
 }
 
 .food-display:hover {
@@ -765,25 +769,32 @@ body {
   font-weight: 700;
 }
 
-/* Float Sound Controller */
-.sound-indicator {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  color: var(--text-main);
-  cursor: pointer;
-  z-index: 100;
-  backdrop-filter: blur(4px);
-  transition: opacity 0.2s;
+/* Header Controls & Sound Button */
+.header-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.sound-indicator:hover {
-  background: rgba(0, 0, 0, 0.8);
+.sound-btn {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  font-family: inherit;
+  outline: none;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.sound-btn:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Animation Keyframes */

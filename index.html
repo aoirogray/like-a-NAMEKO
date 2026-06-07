@@ -19,15 +19,20 @@
 
   <!-- Main App Container -->
   <main class="app-container" id="app">
-    <!-- Header: Score & Food Info -->
+    <!-- Header: Score & Food Info & Sound Toggle -->
     <header class="game-header">
       <div class="np-display">
         <span class="np-label">NP</span>
         <span id="np-count" class="np-value">0</span>
       </div>
-      <div class="food-display" id="food-display-btn">
-        <span class="food-icon">🍱</span>
-        <span id="food-timer" class="food-timer">フード切れ</span>
+      <div class="header-controls">
+        <button class="sound-btn" id="sound-toggle-btn">
+          <span id="sound-status-icon">🔊 On</span>
+        </button>
+        <button class="food-display" id="food-display-btn">
+          <span class="food-icon">🍱</span>
+          <span id="food-timer" class="food-timer">フード切れ</span>
+        </button>
       </div>
     </header>
 
@@ -184,10 +189,7 @@
     </nav>
   </main>
 
-  <!-- Sound effect credits / Settings overlay if needed -->
-  <div class="sound-indicator" id="sound-toggle-btn">
-    <span id="sound-status-icon">🔊 Sound On</span>
-  </div>
+  <!-- JavaScript files below -->
 
   <!-- Core Javascript -->
   <script src="app.js"></script>
